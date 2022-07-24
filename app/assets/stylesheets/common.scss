@@ -1,0 +1,44 @@
+header {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 30px;
+  background-color: rgb(197, 47, 36);
+}
+
+footer{
+  width: 100%;
+  padding: 15px;
+  margin-top: 30px;
+  background-color: rgb(197, 47, 36);
+  display: flex;
+  position: absolute;
+  bottom: 0;
+}
+
+h1 {
+  color: #fff;
+  margin-right: 10px;
+}
+
+table {
+  border-collapse: collapse;
+  border: solid 1px #333;
+  margin-bottom: 10px;
+}
+th, td {
+  border: solid 1px #333;
+  padding: 15px 20px;
+  text-align: center;
+}
+
+th {
+  background-color: rgb(255, 223, 223);
+}
+
+td {
+  background-color: rgba(241, 200, 200, 0.38);
+}
+
+li {
+  list-style: none;
+}

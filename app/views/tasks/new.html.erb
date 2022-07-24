@@ -1,0 +1,51 @@
+<h2>スケジュール新規作成</h2>
+
+<%= form_with model: @task do |form| %>
+  <table>
+    <tr>
+      <th><%= form.label :"タイトル" %></th>
+      <td>
+        <%= form.text_field :title, :size=>"50" %>
+        <% if @task.errors.any? %>
+          <%= @task.errors.messages[:title][0] %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th><%= form.label :"開始日" %></th>
+      <td>
+        <%= form.date_field :start_at %>
+        <% if @task.errors.any? %>
+          <%= @task.errors.messages[:start_at][0] %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th><%= form.label :"終了日" %></th>
+      <td>
+        <%= form.date_field :end_at %>
+        <% if @task.errors.any? %>
+          <%= @task.errors.messages[:end_at][0] %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th><%= form.label :"終日" %></th>
+      <td>
+        <%= form.check_box :all_day %>
+        <p>終日の場合はチェックを入れます</p>
+      </td>
+    </tr>
+    <tr>
+      <th><%= form.label :"スケジュールメモ" %></th>
+      <td>
+        <%= form.text_area :memo, :size=>"45x10" %>
+      </td>
+    </tr>
+  </table>
+  <p>
+    <%= form.submit :"スケジュールを新規登録する"%>
+  </p>
+<% end %>
+
+<%= link_to 'スケジュール一覧に戻る', root_path %>
