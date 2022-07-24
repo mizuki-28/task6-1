@@ -1,0 +1,50 @@
+<h2>スケジュール一覧</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>タイトル</th>
+      <th>開始日</th>
+      <th>終了日</th>
+      <th>終日</th>
+      <th>スケジュール更新日時</th>
+      <th>確認</th>
+      <th>編集</th>
+      <th>削除</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if @tasks.count > 0 %>
+      <% @tasks.each do |task| %>
+        <tr>
+          <td><%= task.id %></td>
+          <td><%= task.title %></td>
+          <td><%= task.start_at.to_s(:date_jp) %></td>
+          <td><%= task.end_at.to_s(:date_jp) %></td>
+          <td>
+            <% if task.all_day %>
+              <strong>○</strong>
+            <% end %>
+          </td>
+          <td><%= task.updated_at.to_s(:datetime_jp) %></td>
+          <td>
+            <%= link_to "確認", task %>
+          </td>
+          <td>
+            <%= link_to "編集", [:edit, task] %>
+          </td>
+          <td>
+            <%= link_to "削除", task_path(task),
+            data: { turbo_method: 'delete', turbo_confirm: "本当に削除しますか？"}%>
+          </td>
+        </tr>
+    <% end %>
+    <% else %>
+      <td colspan="9">現在登録しているスケジュールはありません</td>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'スケジュール新規登録', new_task_path %>
